@@ -1,20 +1,17 @@
-package com.yulag.vo;
+package com.yulag.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author 35238
- * @date 2023/7/20 0020 15:03
- */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-//返回给前端的特定字段
-public class CategoryVo {
+@NoArgsConstructor
+public class EditTagDto {
 
     private Long id;
+    //备注
+    private String remark;
+    //标签名
     private String name;
-
 }

@@ -7,7 +7,7 @@ import com.yulag.mapper.UserMapper;
 import com.yulag.service.UserService;
 import com.yulag.utils.BeanCopyUtils;
 import com.yulag.utils.SecurityUtils;
-import com.yulag.vo.UserInfoVo;
+import com.yulag.domain.vo.UserInfoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

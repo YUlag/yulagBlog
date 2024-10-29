@@ -1,4 +1,4 @@
-package com.yulag.vo;
+package com.yulag.domain.vo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

@@ -7,13 +7,10 @@ import com.yulag.domain.entity.Article;
 import com.yulag.domain.vo.ArticleVo;
 import com.yulag.domain.vo.PageVo;
 import com.yulag.service.ArticleService;
-import com.yulag.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * @Author 三更  B站： https://space.bilibili.com/663528522
- */
+
 @RestController
 @RequestMapping("/content/article")
 public class ArticleController {

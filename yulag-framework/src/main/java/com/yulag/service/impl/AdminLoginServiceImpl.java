@@ -3,21 +3,21 @@ package com.yulag.service.impl;
 import com.yulag.domain.ResponseResult;
 import com.yulag.domain.entity.LoginUser;
 import com.yulag.domain.entity.User;
-import com.yulag.service.BlogLoginService;
-import com.yulag.utils.BeanCopyUtils;
+import com.yulag.service.AdminLoginService;
 import com.yulag.utils.JwtUtil;
 import com.yulag.utils.RedisCache;
-import com.yulag.domain.vo.BlogUserLoginVo;
-import com.yulag.domain.vo.UserInfoVo;
+import com.yulag.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
-public class BlogLoginServiceImpl implements BlogLoginService {
+public class AdminLoginServiceImpl implements AdminLoginService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -38,22 +38,28 @@ public class BlogLoginServiceImpl implements BlogLoginService {
         // 生成jwt
         String jwt = JwtUtil.createJWT(userId);
 
-        redisCache.setCacheObject("bloglogin:" + userId, loginUser);
+        redisCache.setCacheObject("login:" + userId, loginUser);
 
-        UserInfoVo userInfoVo = BeanCopyUtils.copyBean(loginUser.getUser(), UserInfoVo.class);
-        BlogUserLoginVo blogUserLoginVo = new BlogUserLoginVo(jwt, userInfoVo);
-
-        return ResponseResult.okResult(blogUserLoginVo);
+        //把token封装 返回
+        Map<String,String> map = new HashMap<>();
+        map.put("token",jwt);
+        return ResponseResult.okResult(map);
     }
 
     @Override
     public ResponseResult logout() {
-        Authentication autentication = SecurityContextHolder.getContext().getAuthentication();
-        LoginUser loginUser = (LoginUser) autentication.getPrincipal();
-
-        Long userId = loginUser.getUser().getId();
-        redisCache.deleteObject("bloglogin:" + userId);
-
+        //TODO
+//        Authentication autentication = SecurityContextHolder.getContext().getAuthentication();
+//        LoginUser loginUser = (LoginUser) autentication.getPrincipal();
+//
+//        Long userId = loginUser.getUser().getId();
+//        redisCache.deleteObject("bloglogin:" + userId);
+//
+//        return ResponseResult.okResult();
+        //获取当前登录的用户id
+        Long userId = SecurityUtils.getUserId();
+        //删除redis中对应的值
+        redisCache.deleteObject("login:"+userId);
         return ResponseResult.okResult();
     }
 }

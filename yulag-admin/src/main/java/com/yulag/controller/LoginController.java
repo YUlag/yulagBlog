@@ -9,12 +9,10 @@ import com.yulag.domain.vo.RoutersVo;
 import com.yulag.domain.vo.UserInfoVo;
 import com.yulag.enums.AppHttpCodeEnum;
 import com.yulag.exception.SystemException;
-import com.yulag.service.BlogLoginService;
-import com.yulag.service.LoginService;
+import com.yulag.service.AdminLoginService;
 import com.yulag.service.MenuService;
 import com.yulag.service.RoleService;
 import com.yulag.utils.BeanCopyUtils;
-import com.yulag.utils.RedisCache;
 import com.yulag.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -25,7 +23,7 @@ import java.util.List;
 @RestController
 public class LoginController {
     @Autowired
-    private LoginService loginService;
+    private AdminLoginService loginService;
 
     @Autowired
     private MenuService menuService;
@@ -77,5 +75,4 @@ public class LoginController {
         //封装数据返回
         return ResponseResult.okResult(new RoutersVo(menus));
     }
-
 }

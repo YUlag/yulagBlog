@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.yulag.domain.ResponseResult;
 import com.yulag.domain.entity.Category;
 import com.yulag.domain.vo.CategoryVo;
-import com.yulag.domain.vo.ExcelCategoryVo;
+//import com.yulag.domain.vo.ExcelCategoryVo;
 import com.yulag.domain.vo.PageVo;
 import com.yulag.enums.AppHttpCodeEnum;
 import com.yulag.service.CategoryService;
@@ -21,9 +21,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-/**
- * @Author 三更  B站： https://space.bilibili.com/663528522
- */
 @RestController
 @RequestMapping("/content/category")
 public class CategoryController {
@@ -67,24 +64,24 @@ public class CategoryController {
     }
 
 
-    @PreAuthorize("@ps.hasPermission('content:category:export')")
-    @GetMapping("/export")
-    public void export(HttpServletResponse response){
-        try {
-            //设置下载文件的请求头
-            WebUtils.setDownLoadHeader("分类.xlsx",response);
-            //获取需要导出的数据
-            List<Category> categoryVos = categoryService.list();
-
-            List<ExcelCategoryVo> excelCategoryVos = BeanCopyUtils.copyBeanList(categoryVos, ExcelCategoryVo.class);
-            //把数据写入到Excel中
-            EasyExcel.write(response.getOutputStream(), ExcelCategoryVo.class).autoCloseStream(Boolean.FALSE).sheet("分类导出")
-                    .doWrite(excelCategoryVos);
-
-        } catch (Exception e) {
-            //如果出现异常也要响应json
-            ResponseResult result = ResponseResult.errorResult(AppHttpCodeEnum.SYSTEM_ERROR);
-            WebUtils.renderString(response, JSON.toJSONString(result));
-        }
-    }
+//    @PreAuthorize("@ps.hasPermission('content:category:export')")
+//    @GetMapping("/export")
+//    public void export(HttpServletResponse response){
+//        try {
+//            //设置下载文件的请求头
+//            WebUtils.setDownLoadHeader("分类.xlsx",response);
+//            //获取需要导出的数据
+//            List<Category> categoryVos = categoryService.list();
+//
+//            List<ExcelCategoryVo> excelCategoryVos = BeanCopyUtils.copyBeanList(categoryVos, ExcelCategoryVo.class);
+//            //把数据写入到Excel中
+//            EasyExcel.write(response.getOutputStream(), ExcelCategoryVo.class).autoCloseStream(Boolean.FALSE).sheet("分类导出")
+//                    .doWrite(excelCategoryVos);
+//
+//        } catch (Exception e) {
+//            //如果出现异常也要响应json
+//            ResponseResult result = ResponseResult.errorResult(AppHttpCodeEnum.SYSTEM_ERROR);
+//            WebUtils.renderString(response, JSON.toJSONString(result));
+//        }
+//    }
 }

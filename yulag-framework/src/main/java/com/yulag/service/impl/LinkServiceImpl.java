@@ -8,7 +8,7 @@ import com.yulag.domain.entity.Link;
 import com.yulag.mapper.LinkMapper;
 import com.yulag.service.LinkService;
 import com.yulag.utils.BeanCopyUtils;
-import com.yulag.vo.LinkVo;
+import com.yulag.domain.vo.LinkVo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

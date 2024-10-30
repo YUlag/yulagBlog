@@ -11,4 +11,6 @@ public interface MenuMapper extends BaseMapper<Menu> {
     List<Menu> selectAllRouterMenu();
 
     List<Menu> selectRouterMenuTreeByUserId(Long userId);
+
+    List<Long> selectMenuListByRoleId(Long roleId);
 }

@@ -22,7 +22,7 @@ public class ViewCountRunner implements CommandLineRunner {
     private ArticleMapper articleMapper;
 
     @Override
-    //下面的写法是stream流+方法引用+Lambda。我们用这种写法使得代码更简短，跟上面那种写法的效果是一样的
+    //下面的写法是stream流+方法引用+Lambda
     public void run(String... args) throws Exception {
         //查询数据库中的博客信息，注意只需要查询id、viewCount字段的博客信息
         List<Article> articles = articleMapper.selectList(null);//为null即无条件，表示查询所有

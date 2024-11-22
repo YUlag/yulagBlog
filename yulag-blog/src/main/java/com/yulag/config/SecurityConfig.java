@@ -14,10 +14,6 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * @author 35238
- * @date 2023/7/22 0022 21:49
- */
 @Configuration
 //WebSecurityConfigurerAdapter是Security官方提供的类
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -66,7 +62,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(JwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         http.exceptionHandling()
+                // 无权限处理
                 .accessDeniedHandler(accessDeniedHandler)
+                // 未登录处理
                 .authenticationEntryPoint(authenticationEntryPoint);
 
         http.logout().disable();

@@ -20,9 +20,6 @@ import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.Field;
 import java.util.Objects;
 
-/**
- * @author xgz
- */
 @Slf4j
 public class UniqueValidator implements ConstraintValidator<UniqueType, Object> {
 

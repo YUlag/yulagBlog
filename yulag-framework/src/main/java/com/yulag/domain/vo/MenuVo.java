@@ -11,12 +11,6 @@ import lombok.experimental.Accessors;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 菜单权限表(Menu)表实体类
- *
- * @author makejava
- * @since 2022-08-09 23:47:50
- */
 @SuppressWarnings("serial")
 @Data
 @AllArgsConstructor

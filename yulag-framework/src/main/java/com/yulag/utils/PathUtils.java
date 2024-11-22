@@ -4,10 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * @author 35238
- * @date 2023/7/29 0029 12:45
- */
 //对原始文件名进行修改文件名，并修改存放目录
 public class PathUtils {
 

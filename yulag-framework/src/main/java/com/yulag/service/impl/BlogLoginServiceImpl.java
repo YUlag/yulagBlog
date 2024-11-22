@@ -9,6 +9,7 @@ import com.yulag.utils.JwtUtil;
 import com.yulag.utils.RedisCache;
 import com.yulag.domain.vo.BlogUserLoginVo;
 import com.yulag.domain.vo.UserInfoVo;
+import com.yulag.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -48,10 +49,8 @@ public class BlogLoginServiceImpl implements BlogLoginService {
 
     @Override
     public ResponseResult logout() {
-        Authentication autentication = SecurityContextHolder.getContext().getAuthentication();
-        LoginUser loginUser = (LoginUser) autentication.getPrincipal();
+        Long userId = SecurityUtils.getUserId();
 
-        Long userId = loginUser.getUser().getId();
         redisCache.deleteObject("bloglogin:" + userId);
 
         return ResponseResult.okResult();

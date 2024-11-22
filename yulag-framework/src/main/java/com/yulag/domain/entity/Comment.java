@@ -11,12 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-/**
- * 评论表(Comment)表实体类
- *
- * @author makejava
- * @since 2023-07-24 23:00:06
- */
+
 @SuppressWarnings("serial")
 @Data
 @AllArgsConstructor

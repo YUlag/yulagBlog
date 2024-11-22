@@ -27,10 +27,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new RuntimeException("用户名或密码错误");
         }
 
-        //TODO 查询权限信息，并封装
-
-        //返回查询到的用户信息。注意下面那行直接返回user会报错，我们需要在huanf-framework工程的domain目录新
-        //建LoginUser类，在LoginUser类实现UserDetails接口，然后下面那行就返回LoginUser对象
         return new LoginUser(user);
     }
 }

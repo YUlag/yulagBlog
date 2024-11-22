@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>YU_lag的博客小屋</title>
+  <link rel="shortcut icon" href="./static/favicon.svg">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,shrink-to-fit=no">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="./static/css/all.min.css">
+  <!-- <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"> -->
+  <!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> -->
+
+  <style>
+    .footer {
+      background-color: rgba(0, 0, 0, 0);
+      width: 100%;
+      text-align: center;
+      padding: 15px 0 0 0;
+      opacity: 0.8;
+      display: block;
+      font-family: Arial, "STHeiti", Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 11px;
+    }
+
+    /* 当页面高度小于923px时 */
+    @media screen and (max-height: 923px) {
+      .footer {
+        height: 20px;
+        position: relative;
+      }
+    }
+
+    /* 当页面高度大于等于923px时 */
+    @media screen and (min-height: 923px) {
+      .footer {
+        height: 1px;
+        position: static;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .footer a {
+      color: #000;
+    }
+  </style>
+
+  <script>
+    window.onpopstate = function () {
+      location.reload();
+    };
+    window.onload = function () {
+      var footer = document.querySelector(".footer");
+      var pageHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight);
+
+      if (pageHeight < 923) {
+        footer.style.position = "fixed";
+        footer.style.bottom = "0";
+      } else {
+        footer.style.position = "static";
+      }
+    };
+  </script>
+
+  <script type="text/javascript" charset="UTF-8" src="./static/js/shCore.js"></script>
+  <script src="./static/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+</html>

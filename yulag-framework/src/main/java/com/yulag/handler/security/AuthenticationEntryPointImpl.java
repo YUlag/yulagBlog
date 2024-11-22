@@ -15,12 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author 35238
- * @date 2023/7/23 0023 20:34
- */
 @Component
-//自定义认证失败的处理器。ResponseResult、AppHttpCodeEnum是我们在huanf-framework工程写的类
+//自定义认证失败的处理器。
 public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 
     @Override

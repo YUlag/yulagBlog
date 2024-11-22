@@ -11,11 +11,6 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import org.springframework.util.Assert;
 import java.nio.charset.Charset;
 
-/**
- * Redis使用FastJson序列化
- * @author 35238
- * @date 2023/7/22 0022 21:12
- */
 public class FastJsonRedisSerializer<T> implements RedisSerializer<T>{
 
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");

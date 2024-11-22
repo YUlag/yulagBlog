@@ -1,12 +1,12 @@
 server:
-  port: 2399
+  port: 5454
 
 spring:
   # 数据库连接信息
   datasource:
     url: jdbc:mysql://localhost:3306/yulag_blog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: 123456
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   servlet:
@@ -17,7 +17,12 @@ spring:
       # HTTP请求中包含的所有文件的总大小的最大允许值
       max-request-size: 20MB
 
+  redis:
+    host: localhost
+    port: 2399
+
 mybatis-plus:
+#  使用AOP统一日志不使用mp的日志
 #  configuration:
 #    # 日志
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -33,6 +38,6 @@ mybatis-plus:
       id-type: auto
 
 myoss:
-  xxaccessKey: 7XFK_pl5Fi4ZaIgjs2Bo0w9F8uZdULCogEEXUSUq
-  xxsecretKey: U0vVsgpMgHkkwwrGQMhmr6VhE5crDwReNVe9DRGP
-  xxbucket: yulag-blog
+  xxaccessKey: your_access_key
+  xxsecretKey: your_secret_key
+  xxbucket: your_bucket

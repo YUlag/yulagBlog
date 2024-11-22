@@ -48,14 +48,6 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 
     @Override
     public ResponseResult logout() {
-        //TODO
-//        Authentication autentication = SecurityContextHolder.getContext().getAuthentication();
-//        LoginUser loginUser = (LoginUser) autentication.getPrincipal();
-//
-//        Long userId = loginUser.getUser().getId();
-//        redisCache.deleteObject("bloglogin:" + userId);
-//
-//        return ResponseResult.okResult();
         //获取当前登录的用户id
         Long userId = SecurityUtils.getUserId();
         //删除redis中对应的值

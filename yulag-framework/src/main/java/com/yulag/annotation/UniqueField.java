@@ -9,12 +9,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
- 
-/**
- * 数据库唯一校验
- * 场景：比如要求 用户名唯一，但是数据库用户名没有设置唯一键。
- * @author xgz
- */
+
 @Documented
 @Target({FIELD})
 @Retention(RUNTIME)

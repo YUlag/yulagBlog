@@ -2,10 +2,6 @@ package com.yulag.exception;
 
 import com.yulag.enums.AppHttpCodeEnum;
 
-/**
- * @author 35238
- * @date 2023/7/23 0023 21:54
- */
 //统一异常处理
 public class SystemException extends RuntimeException{
 

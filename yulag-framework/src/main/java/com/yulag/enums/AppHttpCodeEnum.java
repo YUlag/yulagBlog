@@ -2,10 +2,6 @@ package com.yulag.enums;
 
 import com.alibaba.fastjson.annotation.JSONType;
 
-/**
- * @author 35238
- * @date 2024/10/9
- */
 @JSONType(serializeEnumAsJavaBean = true)
 public enum AppHttpCodeEnum {
     // 成功

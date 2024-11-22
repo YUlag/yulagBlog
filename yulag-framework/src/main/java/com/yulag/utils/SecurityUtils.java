@@ -4,10 +4,6 @@ import com.yulag.domain.entity.LoginUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-/**
- * @author 35238
- * @date 2023/7/26 0026 20:43
- */
 
 //在'发送评论'功能那里会用到的工具类
 public class SecurityUtils {

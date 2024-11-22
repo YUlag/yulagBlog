@@ -3,10 +3,6 @@ package com.yulag.domain.vo;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-/**
- * @author 35238
- * @date 2023/7/22 0022 22:59
- */
 @Data
 @Accessors(chain = true)
 public class UserInfoVo {

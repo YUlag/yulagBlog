@@ -4,10 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.yulag.enums.AppHttpCodeEnum;
 import java.io.Serializable;
 
-/**
- * @author 35238
- * @date 2024/10/9
- */
 //统一响应格式。实体类，或者这个类严格来说叫响应体
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> implements Serializable {

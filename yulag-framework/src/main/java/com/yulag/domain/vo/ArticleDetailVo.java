@@ -6,10 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-/**
- * @author 35238
- * @date 2023/7/21 0021 21:38
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

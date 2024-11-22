@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * @author 35238
- * @date 2023/7/29 0029 11:17
- */
 @RestController
 public class UploadController {
 

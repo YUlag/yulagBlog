@@ -58,15 +58,12 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         return ResponseResult.okResult(new PageVo(commentVos, page.getTotal()));
     }
 
-    //TODO 需要token没有实现
     @Override
     public ResponseResult addComment(Comment comment) {
         //限制用户在发送评论时，评论内容不能为空。如果为空就抛出异常
         if(!StringUtils.hasText(comment.getContent())){
-            //AppHttpCodeEnum是我们写的枚举类，CONTENT_NOT_NULL代表提示''
             throw new SystemException(AppHttpCodeEnum.CONTENT_NOT_NULL);
         }
-        //解决了四个字段没有值的情况，就可以直接调用mybatisplus提供的save方法往数据库插入数据(用户发送的评论的各个字段)了
         save(comment);
         //封装响应返回
         return ResponseResult.okResult();

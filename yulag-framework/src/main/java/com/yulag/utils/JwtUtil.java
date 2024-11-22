@@ -10,11 +10,6 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * JWT工具类
- * @author 35238
- * @date 2023/7/22 0022 21:18
- */
 public class JwtUtil {
 
     //有效期为

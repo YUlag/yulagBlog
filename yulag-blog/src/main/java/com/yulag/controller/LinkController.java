@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author 35238
- * @date 2023/7/22 0022 14:34
- */
 @RestController
 @RequestMapping("link")
 public class LinkController {

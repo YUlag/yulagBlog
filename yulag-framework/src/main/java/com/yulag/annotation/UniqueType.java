@@ -11,13 +11,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
- 
-/**
- * 校验参数唯一
- * 需要和 UniqueField 注解 搭配使用
- * 场景：要求 用户名唯一，但是数据库用户名没有设置唯一键。
- * @author xgz
- */
+
 @Documented
 @Constraint(validatedBy = {UniqueValidator.class})
 @Target({TYPE})

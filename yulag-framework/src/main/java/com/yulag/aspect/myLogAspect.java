@@ -14,10 +14,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * @author 35238
- * @date 2023/7/30 0030 21:37
- */
 @Component
 @Aspect//告诉spring容器，myLogAspect是切面类
 @Slf4j//用于在控制台打印日志信息

@@ -7,10 +7,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-/**
- * @author 35238
- * @date 2023/7/22 0022 21:19
- */
 public class WebUtils {
     /**
      * 将字符串渲染到客户端
@@ -34,13 +30,10 @@ public class WebUtils {
     }
 
 
-    public static void setDownLoadHeader(String filename, ServletContext context, HttpServletResponse response) throws UnsupportedEncodingException {
-        String mimeType = context.getMimeType(filename);//获取文件的mime类型
-        response.setHeader("content-type",mimeType);
-        String fname= URLEncoder.encode(filename,"UTF-8");
+    public static void setDownLoadHeader(String filename, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        response.setCharacterEncoding("utf-8");
+        String fname= URLEncoder.encode(filename,"UTF-8").replaceAll("\\+", "%20");
         response.setHeader("Content-disposition","attachment; filename="+fname);
-
-//        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-//        response.setCharacterEncoding("utf-8");
     }
 }

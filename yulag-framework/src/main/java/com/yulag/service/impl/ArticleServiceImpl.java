@@ -42,10 +42,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public ResponseResult hotArticleList() {
         LambdaQueryWrapper<Article> lambdaQueryWrapper = new LambdaQueryWrapper<>();
 
+        // 获取正常状态的文章
         lambdaQueryWrapper.eq(Article::getStatus, SystemConstants.ARTICLE_STATUS_NORMAL);
 
         List<Article> list = list(lambdaQueryWrapper);
 
+        // redis里的才是最新的数据, 这里不要用mysql里的数据
         Map<String, Integer> cacheMap = redisCache.getCacheMap("article:viewCount");
 
         list.stream().map(
@@ -57,8 +59,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
         lambdaQueryWrapper.orderByDesc(Article::getViewCount);
 
+        // 分页
         Page<Article> page = new Page<>(SystemConstants.ARTICLE_STATUS_CURRENT, SystemConstants.ARTICLE_STATUS_SIZE);
-        page(page, lambdaQueryWrapper);
+        page.setRecords(list);
         List<Article> articles = page.getRecords();
 
         List<HotArticleVo> hotArticleVos = BeanCopyUtils.copyBeanList(articles, HotArticleVo.class);
@@ -81,9 +84,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
         List<Article> articles = page.getRecords();
 
+        Map<String, Integer> cacheMap = redisCache.getCacheMap("article:viewCount");
+
         for (Article article : articles){
             String categoryName = categoryService.getById(article.getCategoryId()).getName();
             article.setCategoryName(categoryName);
+            // 数据库的浏览量每3分钟才刷新, redis缓存才是实时的
+            Integer viewCount = cacheMap.get(article.getId().toString());
+            article.setViewCount(viewCount.longValue());
         }
 
         List<ArticleListVo> articlesVos = BeanCopyUtils.copyBeanList(articles, ArticleListVo.class);
@@ -154,6 +162,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         Article article = getById(id);
 
         LambdaQueryWrapper<ArticleTag> queryWrapper = new LambdaQueryWrapper<>();
+
         queryWrapper.eq(ArticleTag::getArticleId,article.getId());
         List<Long> tags = articleTagService.list(queryWrapper).stream()
                 .map(articleTag -> articleTag.getTagId())

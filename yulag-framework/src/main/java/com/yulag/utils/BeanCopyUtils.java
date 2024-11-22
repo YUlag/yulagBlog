@@ -5,11 +5,7 @@ import org.springframework.beans.BeanUtils;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * @author 35238
- * @date 2023/7/19 0019 20:13
- */
-//这个类用到很多泛型知识，可以对应去补一下
+//这个类用到很多泛型知识
 public class BeanCopyUtils {
 
     //私有的空参构造方法

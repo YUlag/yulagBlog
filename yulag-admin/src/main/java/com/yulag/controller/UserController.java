@@ -1,6 +1,7 @@
 package com.yulag.controller;
 
 import com.yulag.domain.ResponseResult;
+import com.yulag.domain.dto.ChangeUserStatusDto;
 import com.yulag.domain.entity.Role;
 import com.yulag.domain.entity.User;
 import com.yulag.domain.vo.UserInfoAndRoleIdsVo;
@@ -81,5 +82,13 @@ public class UserController {
         }
         userService.removeByIds(userIds);
         return ResponseResult.okResult();
+    }
+
+    @PutMapping("/changeStatus")
+    public ResponseResult changeStatus(@RequestBody ChangeUserStatusDto userStatusDto) {
+        User user = new User();
+        user.setId(userStatusDto.getUserId());
+        user.setStatus(userStatusDto.getStatus());
+        return ResponseResult.okResult(userService.updateById(user));
     }
 }

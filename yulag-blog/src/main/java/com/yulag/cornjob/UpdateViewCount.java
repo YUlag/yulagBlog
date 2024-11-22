@@ -12,10 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * @author 35238
- * @date 2023/8/1 0001 12:43
- */
 @Component
 //通过定时任务实现每隔3分钟把redis中的浏览量更新到mysql数据库中
 public class UpdateViewCount {
